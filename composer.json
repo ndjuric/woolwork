@@ -1,0 +1,26 @@
+{
+  "name": "ndjuric/woolworks",
+  "description": "trying out swoole",
+  "keywords": ["swoole", "task", "job", "worker"],
+  "homepage": "https://github.com/ndjuric/woolworks",
+  "license": "Apache",
+  "require": {
+    "php": ">=7.1",
+    "ext-swoole": ">=2.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8.35 || ^5.7",
+    "eaglewu/swoole-ide-helper": "dev-master"
+  },
+  "authors": [
+    {
+      "name": "ndjuric",
+      "email": "metod303@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "src"
+    }
+  }
+}
