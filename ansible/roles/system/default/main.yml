@@ -1,0 +1,9 @@
+---
+
+apt_packages:
+  - fail2ban
+  - logwatch
+swapfile_location: /swapfile
+swapfile_size: 1GB
+swapfile_swappiness: 30
+swapfile_vfs_cache_pressure: 50

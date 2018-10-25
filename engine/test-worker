@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+
+<?php
+define('ENGINE_ROOT_PATH', __DIR__);
+date_default_timezone_set('Europe/Belgrade');
+
+require ENGINE_ROOT_PATH . '/vendor/autoload.php';
+
+function main($argv)
+{
+    $config = (require_once ENGINE_ROOT_PATH . '/config.php')['worker'];
+    $task = new \Woolworks\Engine\WorkerModule\TestWorker($config, $argv);
+    $task->run();
+}
+
+main($argv);

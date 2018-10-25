@@ -1,0 +1,10 @@
+---
+
+- name: Allow ports
+  ufw: rule=allow port={{ item }}
+  with_items: "{{ allowed_ports }}"
+  when: allowed_ports|length > 0
+
+- name: Deny all other ports and enable UFW
+  ufw: state=enabled
+  when: allowed_ports|length > 0

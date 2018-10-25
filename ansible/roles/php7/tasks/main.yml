@@ -1,0 +1,15 @@
+---
+
+- name: Add php repository
+  apt_repository:
+     repo: 'ppa:ondrej/php'
+
+- name: Install PHP
+  apt: pkg=php7.1 state=latest
+
+- name: Install PHP Packages
+  apt: pkg={{ item }} state=latest
+  with_items: "{{ php_packages }}"
+  when: php_packages is defined
+  notify:
+    - restart php7.1-fpm

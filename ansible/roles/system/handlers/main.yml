@@ -1,0 +1,5 @@
+---
+
+# Reload settings from /etc/sysctl.conf
+- name: Reload sysctl
+  command: sysctl -p

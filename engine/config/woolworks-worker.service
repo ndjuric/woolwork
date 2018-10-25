@@ -1,0 +1,15 @@
+[Unit]
+Description=Woolworks Worker Service
+After=syslog.target network.target remote-fs.target nss-lookup.target network-online.target
+
+[Service]
+Type=forking
+PIDFile=/var/www/engine/log/woolworks-worker.pid
+ExecStart=/usr/bin/php /var/www/engine/worker start >> /var/www/engine/log/err-worker.log 2>&1
+ExecStop=/bin/kill $MAINPID
+ExecReload=/bin/kill -USR1 $MAINPID
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

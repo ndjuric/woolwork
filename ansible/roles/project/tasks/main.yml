@@ -1,0 +1,10 @@
+---
+- name: Add cd to project parent directory on "vagrant ssh"
+  lineinfile:
+    dest: /home/vagrant/.bashrc
+    line: "cd /var/www/"
+    insertafter: EOF
+    create: True
+
+- name: Install engine project using composer
+  shell: cd /var/www/engine && composer install --no-interaction

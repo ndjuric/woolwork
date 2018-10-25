@@ -1,0 +1,33 @@
+---
+# Passwords
+root_password: changeme
+
+# System
+apt_packages:
+  - fail2ban
+  - logwatch
+  - acl
+swapfile_location: /swapfile
+swapfile_size: 1GB
+swapfile_swappiness: 30
+swapfile_vfs_cache_pressure: 50
+
+# Firewall
+allowed_ports:
+  - 22
+  - 80
+
+# PHP
+php_packages:
+  - php7.1-fpm
+  - php7.1-mysql
+  - php7.1-xml
+  - php7.1-intl
+  - php7.1-zip
+  - php7.1-gd
+  - php7.1-curl
+  - php7.1-soap
+  - php7.1-sqlite3
+  - php7.1-mbstring
+  - php7.1-bcmath
+  - php7.1-dev

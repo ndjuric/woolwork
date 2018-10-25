@@ -1,3 +1,6 @@
 .idea
+.vagrant
+log
 vendor
 composer.lock
+playbook.retry

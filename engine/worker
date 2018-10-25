@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+
+<?php
+
+use \Woolworks\Engine\WorkerModule\Worker;
+
+define('ENGINE_ROOT_PATH', __DIR__);
+date_default_timezone_set('Europe/Belgrade');
+
+require ENGINE_ROOT_PATH . '/vendor/autoload.php';
+
+function main($argv, $argc)
+{
+    $config_file = (require_once ENGINE_ROOT_PATH . '/config.php')['worker'];
+
+    $allowed_actions = ['start', 'stop', 'reload', 'restart'];
+    if ($argc < 2) {
+        exit("Usage ./daemon " . implode("|", $allowed_actions) . "\n");
+    }
+
+    $action = $argv[1];
+    if (!in_array($action, $allowed_actions)) {
+        die("Action not allowed.\n");
+    }
+
+    $daemon = new Worker($config_file);
+    $daemon->$action();
+}
+
+main($argv, $argc);
+

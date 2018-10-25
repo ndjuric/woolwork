@@ -1,0 +1,12 @@
+---
+- hosts: development
+  become: yes
+  become_method: sudo
+  roles:
+    - role: php7
+    - role: swoole
+    - role: rabbitmq
+    - role: composer
+    - role: project
+    - role: firewall
+    - role: system

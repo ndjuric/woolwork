@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+
+<?php
+
+use \Woolworks\Engine\WebSocketModule\WebSocketServer;
+
+define('ENGINE_ROOT_PATH', __DIR__);
+date_default_timezone_set('Europe/Belgrade');
+
+require ENGINE_ROOT_PATH . '/vendor/autoload.php';
+
+function main()
+{
+    $config_file = (require_once ENGINE_ROOT_PATH . '/config.php')['websockd'];
+    $daemon = new WebSocketServer($config_file);
+    $daemon->run();
+}
+
+main();
